@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:mobile_camera/screens/home.dart';
+import 'package:mobile_camera/services/storage.dart';
 
 import 'login.dart';
 
@@ -17,11 +19,19 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer(const Duration(seconds: 3), () {
-      Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => const Login()),
-          (route) => false);
+    _timer = Timer(const Duration(seconds: 3), () async {
+      String? token = await Storage().getToken();
+      if (token != null) {
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const Home()),
+            (route) => false);
+      } else {
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const Login()),
+            (route) => false);
+      }
     });
   }
 

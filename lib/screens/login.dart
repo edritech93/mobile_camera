@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_camera/components/Loader.dart';
+import 'package:mobile_camera/services/storage.dart';
 
 import '../components/AlertApps.dart';
 import '../services/api.dart';
@@ -49,7 +50,10 @@ class _LoginState extends State<Login> {
   void _onPressLogin(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       showLoader(context);
-      Api().login().then((value) => _onPressHome()).catchError((error) {
+      Api().login().then((value) {
+        Storage().setToken('123qwe');
+        _onPressHome();
+      }).catchError((error) {
         Navigator.pop(context);
         showAlert(context, error.toString(), null);
       });
