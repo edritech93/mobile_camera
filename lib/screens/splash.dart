@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:mobile_camera/screens/home.dart';
+import 'package:mobile_camera/screens/dashboard.dart';
 import 'package:mobile_camera/services/storage.dart';
 
 import 'login.dart';
@@ -24,7 +24,7 @@ class _SplashState extends State<Splash> {
       if (token != null) {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => const Home()),
+            MaterialPageRoute(builder: (context) => const Dashboard()),
             (route) => false);
       } else {
         Navigator.pushAndRemoveUntil(

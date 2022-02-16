@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_camera/screens/home.dart';
+import 'package:mobile_camera/screens/dashboard.dart';
 import 'package:mobile_camera/screens/login.dart';
 import 'package:mobile_camera/screens/splash.dart';
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Haermes Flutter',
+      title: 'Haermes',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -26,12 +26,11 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.deepOrange,
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
       home: const Splash(),
       routes: <String, WidgetBuilder>{
         'Splash': (BuildContext context) => const Splash(),
         'Login': (BuildContext context) => const Login(),
-        'Home': (BuildContext context) => const Home(),
+        'Dashboard': (BuildContext context) => const Dashboard(),
       },
     );
   }

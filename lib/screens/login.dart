@@ -4,7 +4,7 @@ import 'package:mobile_camera/services/storage.dart';
 
 import '../components/AlertApps.dart';
 import '../services/api.dart';
-import 'home.dart';
+import 'dashboard.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -63,7 +63,7 @@ class _LoginState extends State<Login> {
   void _onPressHome() {
     Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => const Home()),
+        MaterialPageRoute(builder: (context) => const Dashboard()),
         (route) => false);
   }
 
@@ -133,10 +133,6 @@ class _LoginState extends State<Login> {
                                 )),
                             margin: const EdgeInsets.only(bottom: 16),
                           ),
-                          // NOTE: for testing only
-                          TextButton(
-                              onPressed: () => _onPressHome(),
-                              child: const Text('Goto Home')),
                         ],
                       )),
                 ],
