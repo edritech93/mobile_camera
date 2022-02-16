@@ -47,13 +47,10 @@ class _LoginState extends State<Login> {
   }
 
   void _onPressLogin(BuildContext context) {
-    showLoader(context);
     if (_formKey.currentState!.validate()) {
-      AuthApi().login().then((value) {
-        print('objLogin = $value');
-        _onPressHome();
-      }).catchError((error) {
-        print(error);
+      showLoader(context);
+      Api().login().then((value) => _onPressHome()).catchError((error) {
+        Navigator.pop(context);
         showAlert(context, error.toString(), null);
       });
     }
