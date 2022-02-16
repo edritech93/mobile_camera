@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_camera/components/ItemClocking.dart';
 
 class Clocking extends StatefulWidget {
   const Clocking({Key? key}) : super(key: key);
@@ -8,6 +9,8 @@ class Clocking extends StatefulWidget {
 }
 
 class _ClockingState extends State<Clocking> {
+  final List<String> dataClocking = <String>['A', 'B', 'C'];
+
   void _onPressClocking() {}
   @override
   Widget build(BuildContext context) {
@@ -18,10 +21,13 @@ class _ClockingState extends State<Clocking> {
       body: Column(
         children: [
           Expanded(
-            flex: 6, // 60% of space => (6/(6 + 4))
-            child: Container(
-              color: Colors.white,
-            ),
+            flex: 1,
+            child: ListView.builder(
+                padding: const EdgeInsets.all(8),
+                itemCount: 100,
+                itemBuilder: (BuildContext context, int index) {
+                  return const ItemClocking();
+                }),
           ),
           Container(
               child: ElevatedButton(
